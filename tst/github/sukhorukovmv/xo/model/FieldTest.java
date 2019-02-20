@@ -4,7 +4,6 @@ import github.sukhorukovmv.xo.model.exceptions.AlreadyOccupiedException;
 import github.sukhorukovmv.xo.model.exceptions.InvalidPointException;
 import org.junit.Test;
 
-import java.awt.*;
 
 import static org.junit.Assert.*;
 
