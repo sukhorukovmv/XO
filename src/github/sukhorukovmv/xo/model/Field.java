@@ -3,7 +3,6 @@ package github.sukhorukovmv.xo.model;
 import github.sukhorukovmv.xo.model.exceptions.AlreadyOccupiedException;
 import github.sukhorukovmv.xo.model.exceptions.InvalidPointException;
 
-import java.awt.*;
 
 public class Field {
     private static final int FIELD_SIZE = 3;
@@ -20,21 +19,21 @@ public class Field {
         if (!checkPoint(point)) {
             throw new InvalidPointException();
         }
-        return field[point.x][point.y];
+        return field[point.getX()][point.getY()];
     }
 
     public void setFigure(final Point point, final Figure figure) throws InvalidPointException, AlreadyOccupiedException {
         if (!checkPoint(point)) {
             throw new InvalidPointException();
         }
-        if (field[point.x][point.y] != null) {
+        if (field[point.getX()][point.getY()] != null) {
             throw new AlreadyOccupiedException();
         }
-        field[point.x][point.y] = figure;
+        field[point.getX()][point.getY()] = figure;
     }
 
     private boolean checkPoint(final Point point) {
-        return checkCoordinate(point.x) && checkCoordinate(point.y);
+        return checkCoordinate(point.getX()) && checkCoordinate(point.getY());
     }
 
     private boolean checkCoordinate(final int coordinate) {
