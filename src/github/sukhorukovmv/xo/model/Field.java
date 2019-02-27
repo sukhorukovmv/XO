@@ -1,18 +1,20 @@
 package github.sukhorukovmv.xo.model;
 
-import github.sukhorukovmv.xo.model.exceptions.AlreadyOccupiedException;
 import github.sukhorukovmv.xo.model.exceptions.InvalidPointException;
 
-
 public class Field {
-    private static final int FIELD_SIZE = 3;
-    private static final int MIN_COORDINATE = 0;
-    private static final int MAX_COORDINATE = FIELD_SIZE;
+    private final int fieldSize;
+    private final int minCoordinate;
+    private final Figure[][] field;
 
-    private final Figure[][] field = new Figure[FIELD_SIZE][FIELD_SIZE];
+    public Field(final int fieldSize) {
+        this.fieldSize = fieldSize;
+        this.field = new Figure[fieldSize][fieldSize];
+        this.minCoordinate = 0;
+    }
 
     public int getSize() {
-        return FIELD_SIZE;
+        return fieldSize;
     }
 
     public Figure getFigure(final Point point) throws InvalidPointException {
@@ -22,12 +24,9 @@ public class Field {
         return field[point.getX()][point.getY()];
     }
 
-    public void setFigure(final Point point, final Figure figure) throws InvalidPointException, AlreadyOccupiedException {
+    public void setFigure(final Point point, final Figure figure) throws InvalidPointException {
         if (!checkPoint(point)) {
             throw new InvalidPointException();
-        }
-        if (field[point.getX()][point.getY()] != null) {
-            throw new AlreadyOccupiedException();
         }
         field[point.getX()][point.getY()] = figure;
     }
@@ -37,6 +36,6 @@ public class Field {
     }
 
     private boolean checkCoordinate(final int coordinate) {
-        return coordinate >= MIN_COORDINATE && coordinate < MAX_COORDINATE;
+        return coordinate >= this.minCoordinate && coordinate < field.length;
     }
 }
