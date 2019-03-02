@@ -21,19 +21,17 @@ public class View {
     }
 
     public int enterX() {
-        System.out.println();
         System.out.print("Please enter coordinate X: ");
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();
     }
 
     public int enterY() {
-        System.out.println();
         System.out.print("Please enter coordinate Y: ");
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();
-    }
 
+    }
     private void showLine(final Field field, final int lineNumber) throws InvalidPointException {
         for (int i = 0; i < field.getSize(); i++) {
             Figure figure = field.getFigure(new Point(lineNumber, i));
