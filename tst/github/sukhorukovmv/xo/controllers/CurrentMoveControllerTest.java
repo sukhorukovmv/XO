@@ -27,7 +27,7 @@ public class CurrentMoveControllerTest {
         }
     }
 
-    @Test
+  /*  @Test
     public void currentFigureWhenExpectedX() throws AlreadyOccupiedException, InvalidPointException {
         for (int i = 0; i < 3; i++) {
             final Field field = new Field(3);
@@ -39,6 +39,7 @@ public class CurrentMoveControllerTest {
 
         }
     }
+    */
 
     @Test
     public void Draw() throws AlreadyOccupiedException, InvalidPointException {
@@ -57,4 +58,18 @@ public class CurrentMoveControllerTest {
         if (new CurrentMoveController().currentFigure(field).isPresent()) fail();
 
     }
+
+    @Test
+    public void currentFigureWhenExpectedX() throws AlreadyOccupiedException, InvalidPointException {
+
+        final Field field = new RandomField().getRandomField();
+        new MoveController().applyFigure(field, new RandomPoint().getRandomPoint(field.getSize()), Figure.X);
+        new MoveController().applyFigure(field, new RandomPoint().getRandomPoint(field.getSize()), Figure.O);
+        assertEquals(Figure.X, new CurrentMoveController().currentFigure(field).get());
+        //           assertNull(new WinnerController().getWinner(field).get());
+        //if (new WinnerController().getWinner(field).isPresent()) fail();
+
+    }
 }
+
+
