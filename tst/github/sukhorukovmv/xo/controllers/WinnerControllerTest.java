@@ -25,6 +25,7 @@ public class WinnerControllerTest {
         }
     }
 
+    @Test
     public void checkWinnerOnColumns() throws AlreadyOccupiedException, InvalidPointException {
 
         for (int i = 0; i < 3; i++) {
@@ -42,7 +43,6 @@ public class WinnerControllerTest {
         new MoveController().applyFigure(field, new Point(0, 0), Figure.X);
         new MoveController().applyFigure(field, new Point(1, 1), Figure.X);
         new MoveController().applyFigure(field, new Point(2, 2), Figure.X);
-
         assertEquals(Figure.X, new WinnerController().getWinner(field).get());
     }
 
@@ -52,7 +52,6 @@ public class WinnerControllerTest {
         new MoveController().applyFigure(field, new Point(0, 2), Figure.X);
         new MoveController().applyFigure(field, new Point(1, 1), Figure.X);
         new MoveController().applyFigure(field, new Point(2, 0), Figure.X);
-
         assertEquals(Figure.X, new WinnerController().getWinner(field).get());
 //        if (new WinnerController().getWinner(field).isPresent()) System.out.println("Draw");
     }
@@ -83,7 +82,6 @@ public class WinnerControllerTest {
 //            assertEquals(Optional.empty(), new WinnerController().getWinner(field).get());
             //           assertNull(new WinnerController().getWinner(field).get());
             if (new WinnerController().getWinner(field).isPresent()) fail();
-
         }
     }
 
