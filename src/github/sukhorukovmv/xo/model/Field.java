@@ -6,8 +6,12 @@ public class Field {
     private final int fieldSize;
     private final int minCoordinate;
     private final Figure[][] field;
+    private static int MAX_FIELD_SIZE = 11;
+    private static int MIN_FIELD_SIZE = 3;
 
-    public Field(final int fieldSize) {
+    public Field(int fieldSize) {
+        fieldSize = fieldSize < MIN_FIELD_SIZE ? MIN_FIELD_SIZE : fieldSize;
+        fieldSize = fieldSize > MAX_FIELD_SIZE ? MAX_FIELD_SIZE : fieldSize;
         this.fieldSize = fieldSize;
         this.field = new Figure[fieldSize][fieldSize];
         this.minCoordinate = 0;
