@@ -22,6 +22,5 @@ public class CurrentMoveController {
         if (count == field.getSize() * field.getSize()) return Optional.empty();
         else if (count % 2 == 0) return Optional.of(Figure.X);
         else return Optional.of(Figure.O);
-
     }
 }
