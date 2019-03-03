@@ -21,6 +21,7 @@ public class Field {
         return fieldSize;
     }
 
+
     public Figure getFigure(final Point point) throws InvalidPointException {
         if (!checkPoint(point)) {
             throw new InvalidPointException();
