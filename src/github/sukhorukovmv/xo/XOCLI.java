@@ -31,9 +31,9 @@ public class XOCLI {
                     System.out.println(winner.get());
                     break;
                 }
-                Optional<Figure> moveFigure = currentMoveController.currentFigure(game.getField());
-                if (moveFigure.isPresent()) {
-                    moveController.applyFigure(game.getField(), view.enterPoint(), moveFigure.get());
+                Optional<Figure> currentFigure = currentMoveController.currentFigure(game.getField());
+                if (currentFigure.isPresent()) {
+                    moveController.applyFigure(game.getField(), view.enterPoint(), currentFigure.get());
                 } else System.out.println("DRAW");
 
             } catch (InvalidPointException e) {
