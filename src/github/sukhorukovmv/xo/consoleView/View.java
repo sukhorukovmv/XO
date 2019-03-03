@@ -10,28 +10,29 @@ import java.util.Scanner;
 public class View {
     public void showField(final Field field) {
         for (int i = 0; i < field.getSize(); i++) {
-            separate(field);
             try {
                 showLine(field, i);
             } catch (InvalidPointException e) {
                 e.printStackTrace();
             }
+            if (i != field.getSize() - 1) separate(field);
         }
-        separate(field);
     }
 
-    public int enterX() {
-        System.out.print("Please enter coordinate X: ");
+    public Point enterPoint() {
+        int coordinateX = enterCoordinate("X");
+        System.out.println();
+        int coordinateY = enterCoordinate("Y");
+        System.out.println();
+        return new Point(coordinateX, coordinateY);
+    }
+
+    public int enterFieldSize() {
+        System.out.print("Please enter Field size: ");
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();
     }
 
-    public int enterY() {
-        System.out.print("Please enter coordinate Y: ");
-        Scanner scan = new Scanner(System.in);
-        return scan.nextInt();
-
-    }
     private void showLine(final Field field, final int lineNumber) throws InvalidPointException {
         for (int i = 0; i < field.getSize(); i++) {
             Figure figure = field.getFigure(new Point(lineNumber, i));
@@ -39,6 +40,12 @@ public class View {
             System.out.print(" " + (figure == null ? " " : figure) + directSlash);
         }
         System.out.println();
+    }
+
+    private int enterCoordinate(final String coordinate) {
+        System.out.print("Please enter coordinate " + coordinate + ": ");
+        Scanner scan = new Scanner(System.in);
+        return scan.nextInt();
     }
 
     private void separate(final Field field) {
