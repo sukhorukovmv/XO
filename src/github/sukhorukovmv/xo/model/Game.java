@@ -5,7 +5,6 @@ public class Game {
     private final Field field;
     private final String name;
 
-
     public Game(Player[] players,
                 Field field,
                 String name) {
