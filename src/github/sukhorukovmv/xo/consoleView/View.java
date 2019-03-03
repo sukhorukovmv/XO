@@ -21,9 +21,7 @@ public class View {
 
     public Point enterPoint() {
         int coordinateX = enterCoordinate("X");
-        System.out.println();
         int coordinateY = enterCoordinate("Y");
-        System.out.println();
         return new Point(coordinateX, coordinateY);
     }
 
