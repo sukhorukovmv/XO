@@ -22,7 +22,7 @@ public class View {
     public Point enterPoint() {
         int coordinateX = enterCoordinate("X");
         int coordinateY = enterCoordinate("Y");
-        return new Point(coordinateX, coordinateY);
+        return new Point(coordinateX - 1, coordinateY - 1);
     }
 
     public int enterFieldSize() {
